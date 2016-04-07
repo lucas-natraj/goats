@@ -12,7 +12,7 @@ type Board struct {
 }
 
 func main() {
-	board := new(Board)
+	var board Board
 
 	// initialize
 	for i := 0; i < 8; i++ {
@@ -22,7 +22,7 @@ func main() {
 	play(board, 0)
 }
 
-func play(board *Board, column int) {
+func play(board Board, column int) {
 
 	for i := 0; i < 8; i++ {
 		board.Queens[column] = i
@@ -43,7 +43,7 @@ func play(board *Board, column int) {
 	board.Queens[column] = -1
 }
 
-func validate(board *Board, column int) bool {
+func validate(board Board, column int) bool {
 
 	// scan for entries in the same row
 	for col := 0; col < column; col++ {
@@ -68,7 +68,7 @@ func validate(board *Board, column int) bool {
 	return true
 }
 
-func output(board *Board) {
+func output(board Board) {
 
 	result := make([]int, 8)
 	for i := 0; i < 8; i++ {
